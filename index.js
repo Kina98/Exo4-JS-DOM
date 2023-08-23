@@ -29,19 +29,17 @@ chanson.paroles.forEach(element => {
     const paragraph = document.createElement('p');
     paragraph.classList = 'refrain';
     const span = document.createElement('span');
-    span.classList = 'contenu'
+    span.classList = 'contenu';
     const hidden = document.createElement('span');
     
         if (element.type === 'choeur') {
             hidden.classList = 'choeur hidden';
-            hidden.innerHTML = "[Refrains]<br>";
+            hidden.innerHTML = "[Choeur]<br>";
         } else {
             hidden.classList = element.type;
         }
     
-    const lignes = element.contenu.map(ligne => {
-        return ligne + "<br>";
-    }).join("");
+    const lignes = element.contenu.map(ligne => ligne + "<br>").join("");
     parolesDiv.appendChild(paragraph);
     paragraph.append(span);
     paragraph.prepend(hidden);
@@ -65,7 +63,7 @@ const hrr = document.createElement('hr');
 document.body.insertBefore(hrr, parolesDiv);
 
 label1.innerText = "Masquer les Paroles";
-label2.innerText = "Masquer les refrains";
+label2.innerText = "Masquer les Choeurs";
 
 label1.prepend(button1);
 label2.prepend(button2);
@@ -113,7 +111,7 @@ button2.addEventListener('click', function(event) {
     if (event.target.checked) {
       contenu[i].classList.add('hidden');
       definition[i].classList.remove('hidden');
-      labelRefrains.textContent = 'Masquer les refrains';
+      labelRefrains.textContent = 'Masquer les Choeurs';
 
       definition[i].addEventListener('mouseenter', () => {
           contenu[i].classList.remove('hidden');
@@ -124,7 +122,7 @@ button2.addEventListener('click', function(event) {
     } else {
       contenu[i].classList.remove('hidden');
       definition[i].classList.add('hidden');
-      labelRefrains.textContent = 'Afficher les refrains';
+      labelRefrains.textContent = 'Afficher les Choeurs';
     }
     
   }
